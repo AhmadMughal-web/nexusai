@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "nexusai-backend",
+  "region": "singapore",
+  "plan": "free",
+  "buildCommand": "npm install",
+  "startCommand": "node server.js",
+  "healthCheckPath": "/api/health"
+}

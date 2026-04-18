@@ -195,3 +195,4 @@ Set `CLIENT_URL` in backend `.env` to your frontend domain.
 - **No email setup?** Forgot password links are logged to the console in dev mode.
 - **Rate limits**: Auth is limited to 20 requests/15min, chat to 30 messages/min.
 # nexusai
+# nexusai
