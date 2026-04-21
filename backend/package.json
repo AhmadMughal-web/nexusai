@@ -1,10 +1,12 @@
 {
   "name": "nexusai-backend",
   "version": "1.0.0",
+  "description": "NexusAI Backend — Express + Groq AI",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node --watch server.js"
   },
   "dependencies": {
     "axios": "^1.7.9",

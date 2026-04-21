@@ -1,14 +1,12 @@
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
-import { useChat } from '../../context/ChatContext'
 import LogoutButton from './LogoutButton'
 import SearchHistory from './SearchHistory'
-import { PlusIcon, SparklesIcon } from '../ui/Icons'
+import { SparklesIcon } from '../ui/Icons'
 import '../../styles/sidebar.css'
 
 export default function Sidebar({ open, onClose, onNewChat }) {
   const { user } = useAuth()
-  const navigate = useNavigate()
 
   const handleNewChat = () => {
     onNewChat()
@@ -17,22 +15,27 @@ export default function Sidebar({ open, onClose, onNewChat }) {
 
   return (
     <aside className={`sidebar ${open ? 'open' : 'closed'}`}>
-      {/* Header */}
+
+      {/* Header — logo + X close button on mobile */}
       <div className="sidebar-header">
         <div className="sidebar-logo">
           <div className="logo-mark sm"><span>N</span></div>
           <span className="logo-wordmark">NexusAI</span>
         </div>
+        {/* Close button — sirf mobile pe dikhega */}
+        <button className="sidebar-close-btn" onClick={onClose} aria-label="Close sidebar">
+          ✕
+        </button>
       </div>
 
-      {/* New Search Button */}
+      {/* New Search */}
       <button className="new-chat-btn" onClick={handleNewChat}>
         <SparklesIcon size={16} />
         <span>New Search</span>
         <div className="btn-shimmer" />
       </button>
 
-      {/* Search History */}
+      {/* History */}
       <SearchHistory onSelectChat={() => { if (window.innerWidth <= 768) onClose() }} />
 
       {/* Footer */}
@@ -48,6 +51,7 @@ export default function Sidebar({ open, onClose, onNewChat }) {
         </div>
         <LogoutButton />
       </div>
+
     </aside>
   )
 }

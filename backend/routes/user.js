@@ -1,6 +1,9 @@
 import { Router } from 'express';
-import { protect } from '../middleware/auth.js';
+import { protect } from '../middleware/authMiddleware.js';
+import { getProfile, updateProfile } from '../controllers/userController.js';
 
 export const userRouter = Router();
+
 userRouter.use(protect);
-userRouter.get('/profile', (req, res) => res.json({ success: true, user: req.user }));
+userRouter.get('/profile', getProfile);
+userRouter.patch('/profile', updateProfile);
