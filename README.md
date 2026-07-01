@@ -10,45 +10,6 @@ A production-ready GenAI web application built with **React + Vite** (frontend) 
 Go to → **https://console.groq.com** → Create account → API Keys → Create Key  
 Copy the key (starts with `gsk_...`)
 
-### 2. Setup Backend
-
-```bash
-cd nexusai/backend
-npm install
-```
-
-Edit `.env` and fill in your values:
-```env
-GROQ_API_KEY=gsk_your_key_here        # ← Required
-JWT_SECRET=any_long_random_string      # ← Change this!
-
-# Optional — MongoDB (leave blank to use in-memory DB for dev)
-MONGO_URI=mongodb://localhost:27017/nexusai
-
-# Optional — Email for password reset
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASS=your_gmail_app_password
-```
-
-Start the backend:
-```bash
-npm run dev     # development (auto-reload)
-npm start       # production
-```
-Backend runs on → **http://localhost:5000**
-
-### 3. Setup Frontend
-
-```bash
-cd nexusai/frontend
-npm install
-npm run dev
-```
-Frontend runs on → **http://localhost:5173**
-
-> The Vite dev server automatically proxies `/api` requests to `localhost:5000`
-
----
 
 ## ✅ Features
 
