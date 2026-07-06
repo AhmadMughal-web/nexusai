@@ -1,13 +1,14 @@
 import { useAuth } from '../../context/AuthContext'
 import { useChat } from '../../context/ChatContext'
+import { DocumentIcon, TargetIcon, RoadmapIcon, ZapIcon, MicIcon, LightbulbIcon } from '../ui/Icons'
 
 const CARDS = [
-  { icon: '📄', title: 'Build My CV',    prompt: 'Help me build a complete professional CV/Resume.' },
-  { icon: '🎯', title: 'Find Jobs',       prompt: 'Help me find jobs that match my skills. Ask me about my background.' },
-  { icon: '🗺️', title: 'Career Roadmap', prompt: 'Create a career roadmap for me. Ask what field I want to go into.' },
-  { icon: '⚡', title: 'Skill Analysis', prompt: 'Analyze my skills and suggest what I should learn next.' },
-  { icon: '🎤', title: 'Interview Prep', prompt: 'Help me prepare for a job interview. Ask what role I am applying for.' },
-  { icon: '💡', title: 'Career Advice',  prompt: 'Give me expert career advice for my professional growth.' },
+  { Icon: DocumentIcon, title: 'Build My CV', prompt: 'Help me build a complete professional CV/Resume.' },
+  { Icon: TargetIcon, title: 'Find Jobs', prompt: 'Help me find jobs that match my skills. Ask me about my background.' },
+  { Icon: RoadmapIcon, title: 'Career Roadmap', prompt: 'Create a career roadmap for me. Ask what field I want to go into.' },
+  { Icon: ZapIcon, title: 'Skill Analysis', prompt: 'Analyze my skills and suggest what I should learn next.' },
+  { Icon: MicIcon, title: 'Interview Prep', prompt: 'Help me prepare for a job interview. Ask what role I am applying for.' },
+  { Icon: LightbulbIcon, title: 'Career Advice', prompt: 'Give me expert career advice for my professional growth.' },
 ]
 
 export default function WelcomeHero() {
@@ -33,7 +34,9 @@ export default function WelcomeHero() {
               onClick={() => sendMessage(card.prompt)}
               disabled={streaming}
             >
-              <span className="quick-icon">{card.icon}</span>
+              <span className="quick-icon">
+                <card.Icon size={22} />
+              </span>
               <div className="quick-text">
                 <strong>{card.title}</strong>
               </div>

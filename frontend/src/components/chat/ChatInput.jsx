@@ -1,12 +1,12 @@
 import { useState, useRef, useCallback } from 'react'
 import { useChat } from '../../context/ChatContext'
-import { SendIcon } from '../ui/Icons'
+import { SendIcon, DocumentIcon, RoadmapIcon, TargetIcon, MicIcon } from '../ui/Icons'
 
 const HINTS = [
-  { label: '📄 CV Builder',     text: 'Help me build a complete CV/Resume.' },
-  { label: '🗺️ Career Roadmap', text: 'Create a career roadmap for becoming a ' },
-  { label: '🎯 Job Finder',     text: 'Find jobs matching my skills: ' },
-  { label: '🎤 Interview Prep', text: 'Help me prep for an interview at ' },
+  { Icon: DocumentIcon, label: 'CV Builder', text: 'Help me build a complete CV/Resume.' },
+  { Icon: RoadmapIcon, label: 'Career Roadmap', text: 'Create a career roadmap for becoming a ' },
+  { Icon: TargetIcon, label: 'Job Finder', text: 'Find jobs matching my skills: ' },
+  { Icon: MicIcon, label: 'Interview Prep', text: 'Help me prep for an interview at ' },
 ]
 
 export default function ChatInput() {
@@ -45,7 +45,7 @@ export default function ChatInput() {
           {HINTS.map(h => (
             <button key={h.label} className="hint-chip" type="button"
               onClick={() => applyHint(h.text)} disabled={streaming}>
-              {h.label}
+              <h.Icon size={14} /> {h.label}
             </button>
           ))}
         </div>
